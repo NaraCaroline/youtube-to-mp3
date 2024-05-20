@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>YouTube to MP3</title>
+    <link rel="icon" type="image/x-icon" href="/public/images/favicon.png">
+</head>
+<body>
+    <div class="top-container">
+        <form action="/convert-mp3" autocomplete="off" method="POST" id="form"> 
+            <h1>YouTube -> MP3</h1>
+            <h4>Insira o ID do vídeo.</h4>
+            <div>
+                <input type="text" name="videoID" class="input-id" placeholder="ID do vídeo"><button id="convert-btn">CONVERTER</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="bottom-container">
+        <% if (typeof success != "undefined" && success) { %>
+            <div class="success">
+              <p> <%= song_title %> </p>
+              <a href="<%= song_link %>"><button id="download-btn">DOWNLOAD</button></a>
+            </div>
+          <% } else if (typeof success != "undefined" && !success) { %>
+            <div class="errors">
+              <p> <%= message %> </p>
+            </div>
+          <% } %>
+    </div>
+</body>
+</html>
